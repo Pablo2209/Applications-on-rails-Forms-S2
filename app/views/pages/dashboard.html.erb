@@ -1,0 +1,30 @@
+<h1>Gestion de proyectos</h1>
+
+<form action="">
+<select name="status"><br>
+    <option value="">All</option>
+    <option value="proposal">Proposal</option>
+    <option value="in progress">In progress</option>
+    <option value="finished">Finished</option>
+</select><br>
+<input type="submit" value="Search" class="btn my-3">
+</form>
+
+<table class="table">
+    <tr>
+    <th>Nombre del proyecto</th>
+    <th>Descripcion</th>
+    <th>Fecha de inicio</th>
+    <th>Fecha de termino</th>
+    <th>Porcentaje de avance</th>
+    </tr>
+    <% @projects.each do |project|%>
+        <tr>
+            <td><%= project.project_name %></td>
+            <td><%= project.description %></td>
+            <td><%= project.start_date %></td>
+            <td><%= project.end_date %></td>
+            <td><%= project.status %></td>
+        </tr>
+    <% end %>
+</table>

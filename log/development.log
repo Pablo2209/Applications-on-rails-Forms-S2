@@ -1,0 +1,359 @@
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateProjects (20210113005048)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "projects" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "project_name" varchar, "description" text, "start_date" date, "end_date" date, "status" varchar DEFAULT 'proposal', "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210113005048"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-01-21 22:28:52.013281"], ["updated_at", "2021-01-21 22:28:52.013281"]]
+  [1m[35m (6.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2021-01-21 14:29:18 -0800
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 350)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/pc/Desktop/RUBY_ON_RAILS/Aplicaciones_Rails/Formularios/Semana2/gestor_proyectos-main/public/packs
+[Webpacker] Hash: 76145d9ce4575ebaa29b
+Version: webpack 4.46.0
+Time: 1600ms
+Built at: 01/21/2021 2:29:20 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-c229f7c7014cf8c8d494.js    124 KiB  application  [emitted] [immutable]  application
+js/application-c229f7c7014cf8c8d494.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-c229f7c7014cf8c8d494.js js/application-c229f7c7014cf8c8d494.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+Completed 200 OK in 2872ms (Views: 2864.3ms | ActiveRecord: 0.0ms | Allocations: 20454)
+
+
+Started GET "/pages/create?project_name=La+polvora&description=Actualizacion+sistema+de+control+&start_date=01%2F05%2F2020&end_date=01%2F03%2F2021&status=90%25" for ::1 at 2021-01-21 14:31:11 -0800
+Processing by PagesController#create as HTML
+  Parameters: {"project_name"=>"La polvora", "description"=>"Actualizacion sistema de control ", "start_date"=>"01/05/2020", "end_date"=>"01/03/2021", "status"=>"90%"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pages_controller.rb:17:in `create'
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("project_name", "description", "start_date", "end_date", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["project_name", "La polvora"], ["description", "Actualizacion sistema de control "], ["start_date", "2020-05-01"], ["end_date", "2021-03-01"], ["status", "90%"], ["created_at", "2021-01-21 22:31:11.418350"], ["updated_at", "2021-01-21 22:31:11.418350"]]
+  ↳ app/controllers/pages_controller.rb:17:in `create'
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pages_controller.rb:17:in `create'
+  Rendering pages/create.html.erb within layouts/application
+  Rendered pages/create.html.erb within layouts/application (Duration: 0.5ms | Allocations: 74)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 8.7ms | ActiveRecord: 4.6ms | Allocations: 15185)
+
+
+Started GET "/pages/create?project_name=La+polvora&description=Actualizacion+sistema+de+control+&start_date=01%2F05%2F2020&end_date=01%2F03%2F2021&status=90%25" for ::1 at 2021-01-21 14:31:42 -0800
+Processing by PagesController#create as HTML
+  Parameters: {"project_name"=>"La polvora", "description"=>"Actualizacion sistema de control ", "start_date"=>"01/05/2020", "end_date"=>"01/03/2021", "status"=>"90%"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pages_controller.rb:17:in `create'
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("project_name", "description", "start_date", "end_date", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["project_name", "La polvora"], ["description", "Actualizacion sistema de control "], ["start_date", "2020-05-01"], ["end_date", "2021-03-01"], ["status", "90%"], ["created_at", "2021-01-21 22:31:42.498039"], ["updated_at", "2021-01-21 22:31:42.498039"]]
+  ↳ app/controllers/pages_controller.rb:17:in `create'
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pages_controller.rb:17:in `create'
+  Rendering pages/create.html.erb within layouts/application
+  Rendered pages/create.html.erb within layouts/application (Duration: 0.4ms | Allocations: 73)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 8.3ms | ActiveRecord: 3.8ms | Allocations: 9155)
+
+
+Started GET "/pages/create?project_name=La+polvora&description=Actualizacion+sistema+de+control+&start_date=01%2F05%2F2020&end_date=01%2F03%2F2021&status=90%25" for ::1 at 2021-01-21 14:32:50 -0800
+Processing by PagesController#create as HTML
+  Parameters: {"project_name"=>"La polvora", "description"=>"Actualizacion sistema de control ", "start_date"=>"01/05/2020", "end_date"=>"01/03/2021", "status"=>"90%"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pages_controller.rb:17:in `create'
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("project_name", "description", "start_date", "end_date", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["project_name", "La polvora"], ["description", "Actualizacion sistema de control "], ["start_date", "2020-05-01"], ["end_date", "2021-03-01"], ["status", "90%"], ["created_at", "2021-01-21 22:32:50.368897"], ["updated_at", "2021-01-21 22:32:50.368897"]]
+  ↳ app/controllers/pages_controller.rb:17:in `create'
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pages_controller.rb:17:in `create'
+  Rendering pages/create.html.erb within layouts/application
+  Rendered pages/create.html.erb within layouts/application (Duration: 0.2ms | Allocations: 73)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 6.1ms | ActiveRecord: 2.0ms | Allocations: 9141)
+
+
+Started GET "/" for ::1 at 2021-01-21 14:32:53 -0800
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 131)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.0ms | Allocations: 3670)
+
+
+Started GET "/posts/dashboard" for ::1 at 2021-01-21 14:32:58 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/posts/dashboard"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/pages/dashboard" for ::1 at 2021-01-21 14:33:11 -0800
+Processing by PagesController#dashboard as HTML
+Filter chain halted as #<Proc:0x00007ff20892d3b0 /home/pc/.rvm/gems/ruby-2.7.2/gems/actionpack-6.0.3.4/lib/action_controller/metal/http_authentication.rb:73> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 285)
+
+
+Started GET "/pages/dashboard" for ::1 at 2021-01-21 14:33:11 -0800
+Processing by PagesController#dashboard as HTML
+  Rendering pages/dashboard.html.erb within layouts/application
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/pages/dashboard.html.erb:21
+  Rendered pages/dashboard.html.erb within layouts/application (Duration: 2.5ms | Allocations: 989)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.3ms | Allocations: 4694)
+
+
+Started GET "/pages/dashboard?status=in+progress" for ::1 at 2021-01-21 14:33:32 -0800
+Processing by PagesController#dashboard as HTML
+  Parameters: {"status"=>"in progress"}
+  Rendering pages/dashboard.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE (status = 'in progress')[0m
+  ↳ app/views/pages/dashboard.html.erb:21
+  Rendered pages/dashboard.html.erb within layouts/application (Duration: 1.1ms | Allocations: 634)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.1ms | Allocations: 4151)
+
+
+Started GET "/pages/dashboard?status=proposal" for ::1 at 2021-01-21 14:33:35 -0800
+Processing by PagesController#dashboard as HTML
+  Parameters: {"status"=>"proposal"}
+  Rendering pages/dashboard.html.erb within layouts/application
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE (status = 'proposal')[0m
+  ↳ app/views/pages/dashboard.html.erb:21
+  Rendered pages/dashboard.html.erb within layouts/application (Duration: 1.0ms | Allocations: 618)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.2ms | Allocations: 4114)
+
+
+Started GET "/pages/dashboard?status=in+progress" for ::1 at 2021-01-21 14:33:38 -0800
+Processing by PagesController#dashboard as HTML
+  Parameters: {"status"=>"in progress"}
+  Rendering pages/dashboard.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE (status = 'in progress')[0m
+  ↳ app/views/pages/dashboard.html.erb:21
+  Rendered pages/dashboard.html.erb within layouts/application (Duration: 0.9ms | Allocations: 617)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.1ms | Allocations: 4124)
+
+
+Started GET "/pages/dashboard?status=finished" for ::1 at 2021-01-21 14:33:40 -0800
+Processing by PagesController#dashboard as HTML
+  Parameters: {"status"=>"finished"}
+  Rendering pages/dashboard.html.erb within layouts/application
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE (status = 'finished')[0m
+  ↳ app/views/pages/dashboard.html.erb:21
+  Rendered pages/dashboard.html.erb within layouts/application (Duration: 1.5ms | Allocations: 618)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.3ms | Allocations: 4113)
+
+
+Started GET "/pages/dashboard?status=" for ::1 at 2021-01-21 14:33:42 -0800
+Processing by PagesController#dashboard as HTML
+  Parameters: {"status"=>""}
+  Rendering pages/dashboard.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/pages/dashboard.html.erb:21
+  Rendered pages/dashboard.html.erb within layouts/application (Duration: 1.2ms | Allocations: 722)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.1ms | Allocations: 4195)
+
+
+Started GET "/pages/dashboard?status=" for ::1 at 2021-01-21 14:33:43 -0800
+Processing by PagesController#dashboard as HTML
+  Parameters: {"status"=>""}
+  Rendering pages/dashboard.html.erb within layouts/application
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/pages/dashboard.html.erb:21
+  Rendered pages/dashboard.html.erb within layouts/application (Duration: 1.5ms | Allocations: 722)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.2ms | Allocations: 4189)
+
+
+Started GET "/pages/dashboard?status=finished" for ::1 at 2021-01-21 14:33:46 -0800
+Processing by PagesController#dashboard as HTML
+  Parameters: {"status"=>"finished"}
+  Rendering pages/dashboard.html.erb within layouts/application
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE (status = 'finished')[0m
+  ↳ app/views/pages/dashboard.html.erb:21
+  Rendered pages/dashboard.html.erb within layouts/application (Duration: 1.3ms | Allocations: 617)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.2ms | Allocations: 4123)
+
+
+Started GET "/pages/dashboard?status=in+progress" for ::1 at 2021-01-21 14:33:49 -0800
+Processing by PagesController#dashboard as HTML
+  Parameters: {"status"=>"in progress"}
+  Rendering pages/dashboard.html.erb within layouts/application
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE (status = 'in progress')[0m
+  ↳ app/views/pages/dashboard.html.erb:21
+  Rendered pages/dashboard.html.erb within layouts/application (Duration: 1.3ms | Allocations: 617)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.2ms | ActiveRecord: 0.2ms | Allocations: 4117)
+
+
+Started GET "/pages/dashboard?status=proposal" for ::1 at 2021-01-21 14:33:51 -0800
+Processing by PagesController#dashboard as HTML
+  Parameters: {"status"=>"proposal"}
+  Rendering pages/dashboard.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE (status = 'proposal')[0m
+  ↳ app/views/pages/dashboard.html.erb:21
+  Rendered pages/dashboard.html.erb within layouts/application (Duration: 1.1ms | Allocations: 617)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.1ms | Allocations: 4108)
+
+
+Started GET "/pages/dashboard?status=" for ::1 at 2021-01-21 14:35:18 -0800
+Processing by PagesController#dashboard as HTML
+  Parameters: {"status"=>""}
+  Rendering pages/dashboard.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/pages/dashboard.html.erb:21
+  Rendered pages/dashboard.html.erb within layouts/application (Duration: 1.5ms | Allocations: 926)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.1ms | Allocations: 5316)
+
+
+Started GET "/" for ::1 at 2021-01-21 14:35:25 -0800
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 133)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.0ms | Allocations: 3663)
+
+
+Started GET "/" for ::1 at 2021-01-21 14:36:17 -0800
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 131)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.3ms | ActiveRecord: 0.0ms | Allocations: 4439)
+
+
+Started GET "/" for ::1 at 2021-01-21 14:40:48 -0800
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 136)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.0ms | Allocations: 4439)
+
+
+Started GET "/pages/dashboard" for ::1 at 2021-01-21 14:41:29 -0800
+Processing by PagesController#dashboard as HTML
+  Rendering pages/dashboard.html.erb within layouts/application
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/pages/dashboard.html.erb:21
+  Rendered pages/dashboard.html.erb within layouts/application (Duration: 2.5ms | Allocations: 924)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 7.9ms | ActiveRecord: 0.3ms | Allocations: 4543)
+
+
+Started GET "/pages/dashboard" for ::1 at 2021-01-21 14:42:16 -0800
+Processing by PagesController#dashboard as HTML
+  Rendering pages/dashboard.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/pages/dashboard.html.erb:21
+  Rendered pages/dashboard.html.erb within layouts/application (Duration: 1.8ms | Allocations: 925)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.1ms | Allocations: 5297)
+
+
+Started GET "/pages/dashboard" for ::1 at 2021-01-21 14:42:57 -0800
+Processing by PagesController#dashboard as HTML
+  Rendering pages/dashboard.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/pages/dashboard.html.erb:21
+  Rendered pages/dashboard.html.erb within layouts/application (Duration: 1.6ms | Allocations: 925)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 0.1ms | Allocations: 5312)
+
+
+Started GET "/pages/dashboard" for ::1 at 2021-01-21 14:43:27 -0800
+Processing by PagesController#dashboard as HTML
+  Rendering pages/dashboard.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/pages/dashboard.html.erb:21
+  Rendered pages/dashboard.html.erb within layouts/application (Duration: 1.1ms | Allocations: 722)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.1ms | Allocations: 4207)
+
+
+Started GET "/pages/dashboard" for ::1 at 2021-01-21 14:45:46 -0800
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PagesController#dashboard as HTML
+  Rendering pages/dashboard.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/pages/dashboard.html.erb:21
+  Rendered pages/dashboard.html.erb within layouts/application (Duration: 3.5ms | Allocations: 970)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 8.0ms | ActiveRecord: 1.6ms | Allocations: 10163)
+
+
+Started GET "/pages/dashboard" for ::1 at 2021-01-21 14:46:08 -0800
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#dashboard as HTML
+  Rendering pages/dashboard.html.erb within layouts/application
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/pages/dashboard.html.erb:21
+  Rendered pages/dashboard.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1095)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 51ms (Views: 34.7ms | ActiveRecord: 0.6ms | Allocations: 13113)
+
+
+Started GET "/" for ::1 at 2021-01-21 14:46:26 -0800
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 137)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 16.7ms | ActiveRecord: 0.0ms | Allocations: 3672)
+
+
+Started GET "/pages/dashboard" for ::1 at 2021-01-21 14:46:34 -0800
+Processing by PagesController#dashboard as HTML
+  Rendering pages/dashboard.html.erb within layouts/application
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/pages/dashboard.html.erb:21
+  Rendered pages/dashboard.html.erb within layouts/application (Duration: 2.0ms | Allocations: 731)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.2ms | Allocations: 4220)
+
+
